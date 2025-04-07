@@ -20,89 +20,122 @@
       <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
     </a>
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.2-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.0.3-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
   </p>
 </div>
 
 # Welcome to Django Kick Start Extension
 
-## What's in the folder
-
-* This folder contains all of the files necessary for your extension.
-* `package.json` - this is the manifest file that defines:
-  * Extension metadata (name, version, description)
-  * Commands and their titles
-  * Extension activation events
-  * Dependencies and development tools
-* `src/extension.ts` - this is the main file where the extension logic resides.
-  * Implements the `activate` function for extension initialization
-  * Registers all Django-related commands
-  * Handles environment validation and setup
-
 ## Features and Commands
 
-### 1. Project Initialization
-* Command: `Django: Initialize New Project`
+### 1. Project Initialization (`Django: Initialize New Project`)
 * Creates a new Django project with:
   * Custom project name validation
   * Default 'myapp' application
   * Configured URLs and views
   * Initial database setup
 
-### 2. App Generation
-* Command: `Django: Generate New App`
+### 2. App Generation (`Django: Generate New App`)
 * Creates new Django apps with:
   * Custom app name support
   * Automatic INSTALLED_APPS registration
   * URL pattern configuration
   * Basic view setup
 
-### 3. Static Files Helper
-* Command: `Django: Setup Static Files`
-* Helps configure static file handling
+### 3. Static Files Helper (`Django: Setup Static Files`)
+* Automatically creates and configures:
+  * Static files directory structure (css, js, images)
+  * Media files directory
+  * Sample CSS file with basic styles
+  * Static and media settings in settings.py
+  * Development media serving in urls.py
 
-### 4. Template Scaffolding
-* Command: `Django: Scaffold Templates`
-* Sets up template directory structure
+### 4. Template Scaffolding (`Django: Scaffold Templates`)
+* Sets up a complete template structure:
+  * Base template with Bootstrap 5
+  * Responsive navigation bar
+  * User authentication views
+  * Dashboard layout
+  * Mobile-friendly design
+  * Custom block structure for easy extension
 
-## Get up and running straight away
+## Project Structure
 
-* Press `F5` to open a new window with your extension loaded.
-* Run commands from the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac)
-* Type "Django" to see all available commands
-* Set breakpoints in `src/extension.ts` to debug your extension
-* Find output from your extension in the debug console
+```
+your-project/
+├── manage.py
+├── your_project/
+│   ├── settings.py
+│   └── urls.py
+├── myapp/
+│   ├── views.py
+│   └── urls.py
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   └── images/
+├── media/
+└── templates/
+    ├── base.html
+    ├── home.html
+    ├── login.html
+    └── dashboard.html
+```
 
-## Make changes
+## Get Started
 
-* You can relaunch the extension from the debug toolbar after changes
-* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window
+1. Press `F5` to open a new window with your extension loaded
+2. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`)
+3. Try these commands:
+   * `Django: Initialize New Project` - Create a new project
+   * `Django: Generate New App` - Add a new app
+   * `Django: Setup Static Files` - Configure static files
+   * `Django: Scaffold Templates` - Set up templates
 
-## Recent Updates (v1.0.1)
+## Development
 
-* Changed default app name to 'myapp'
-* Improved app generation process
-* Enhanced documentation
-* Updated VS Code compatibility
-* Better error handling
+* Use the debug toolbar to relaunch after changes
+* Check the Output panel for detailed logs
+* Set breakpoints in `src/extension.ts`
+* Monitor the Debug Console for errors
 
-## Explore the API
+## Recent Updates (v1.0.3)
 
-* You can open the full set of our API when you open the file `node_modules/@types/vscode/index.d.ts`.
+* Added Static Files Helper
+  * Automatic directory creation
+  * Settings configuration
+  * Media serving setup
+* Implemented Template Scaffolding
+  * Bootstrap integration
+  * Responsive layouts
+  * Authentication templates
+* Enhanced error handling and logging
+* Improved user feedback and progress indicators
 
-## Run tests
+## Testing
 
-* Install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
-* Run the "watch" task via the **Tasks: Run Task** command
-* Open the Testing view and click the Run Test button
-* See the output of the test result in the Test Results view
-* Make changes to `src/test/extension.test.ts` or create new test files inside the `test` folder
+* Run tests with Extension Test Runner
+* Monitor test results in Test Results view
+* Add new tests in `test` folder
+* Use watch mode for continuous testing
 
-## Go further
+## Debugging Tips
 
-* [Follow UX guidelines](https://code.visualstudio.com/api/ux-guidelines/overview)
-* [Bundle your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
-* [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
-* [Set up Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration)
-* [Integrate issue reporting](https://code.visualstudio.com/api/get-started/wrapping-up#issue-reporting)
+1. Check the Output panel for detailed logs
+2. Use breakpoints in extension.ts
+3. Monitor the Debug Console
+4. Review error messages in notifications
+
+## Next Steps
+
+* Review the [VS Code Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+* Explore the [VS Code API](https://code.visualstudio.com/api/references/vscode-api)
+* Check the [Extension Samples](https://github.com/Microsoft/vscode-extension-samples)
+
+## Resources
+
+* [VS Code Extension Development](https://code.visualstudio.com/api)
+* [Django Documentation](https://docs.djangoproject.com/)
+* [Bootstrap Documentation](https://getbootstrap.com/docs/5.3)
