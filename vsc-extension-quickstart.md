@@ -13,14 +13,14 @@
   </p>
 
   <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
       <img src="https://img.shields.io/badge/VS_Code-1.85.0+-373277?style=for-the-badge&logo=visualstudio&logoColor=white" alt="VS Code"/>
     </a>
     <a href="https://www.python.org">
       <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
     </a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.3-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
+      <img src="https://img.shields.io/badge/version-1.0.4-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
   </p>
 </div>
@@ -101,18 +101,12 @@ your-project/
 * Set breakpoints in `src/extension.ts`
 * Monitor the Debug Console for errors
 
-## Recent Updates (v1.0.3)
+## Recent Updates (v1.0.4)
 
-* Added Static Files Helper
-  * Automatic directory creation
-  * Settings configuration
-  * Media serving setup
-* Implemented Template Scaffolding
-  * Bootstrap integration
-  * Responsive layouts
-  * Authentication templates
-* Enhanced error handling and logging
-* Improved user feedback and progress indicators
+* Updated publisher information
+* Refreshed documentation links
+* Enhanced version compatibility
+* Improved repository references
 
 ## Testing
 

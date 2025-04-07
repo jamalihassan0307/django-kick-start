@@ -7,19 +7,19 @@
   <p><i>A powerful VS Code extension for seamless Django project initialization and management</i></p>
   
   <p align="center">
-    <a href="https://github.com/yourusername">
+    <a href="https://github.com/jamalihassan0307">
       <img src="https://img.shields.io/badge/Created_by-Jam_Ali_Hassan-blue?style=for-the-badge&logo=github&logoColor=white" alt="Created by"/>
     </a>
   </p>
 
   <p align="center">
-    <a href="https://github.com/yourusername">
+    <a href="https://github.com/jamalihassan0307">
       <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
     </a>
-    <a href="https://www.linkedin.com/in/yourusername">
+    <a href="https://www.linkedin.com/in/jamalihassan0307">
       <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
     </a>
-    <a href="https://yourusername.github.io/portfolio.github.io">
+    <a href="https://jamalihassan0307.github.io/portfolio.github.io">
       <img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" alt="Portfolio"/>
     </a>
   </p>
@@ -37,7 +37,7 @@
   </p>
 
   <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=yourusername.django-kick-start">
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
       <img src="https://img.shields.io/badge/version-1.0.4-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
@@ -160,7 +160,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🐛 Known Issues
 
-See the [issue tracker](https://github.com/yourusername/django-kick-start/issues) for current issues.
+See the [issue tracker](https://github.com/jamalihassan0307/django-kick-start/issues) for current issues.
 
 ---
 

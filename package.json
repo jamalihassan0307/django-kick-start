@@ -3,7 +3,7 @@
   "displayName": "Django Kick Start",
   "description": "A VS Code extension to kickstart Django development",
   "version": "1.0.4",
-  "publisher": "yourusername",
+  "publisher": "jamalihassan0307",
   "engines": {
     "vscode": "^1.85.0",
     "node": "^16.0.0"
@@ -74,11 +74,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/django-kick-start"
+    "url": "https://github.com/jamalihassan0307/django-kick-start"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/django-kick-start/issues"
+    "url": "https://github.com/jamalihassan0307/django-kick-start/issues"
   },
-  "homepage": "https://github.com/yourusername/django-kick-start#readme",
+  "homepage": "https://github.com/jamalihassan0307/django-kick-start#readme",
   "license": "MIT"
 }
