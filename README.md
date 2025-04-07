@@ -38,7 +38,7 @@
 
   <p align="center">
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.2-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.0.3-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
       <img src="https://img.shields.io/badge/Django-Latest-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
@@ -53,7 +53,7 @@
 
 A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
 
-![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.3-blue.svg)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
 ## 🎯 Features
@@ -71,12 +71,30 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 - Pre-configured URL patterns
 - Basic view setup with welcome page
 
+### 3. Static Files Helper
+- Automatic creation of static file structure
+- Configuration of static and media files in settings.py
+- Setup of development media serving
+- Sample CSS file with basic styles
+- Proper static file organization (css, js, images)
+
+### 4. Template Scaffolding
+- Bootstrap-powered base template
+- Responsive navigation bar
+- User authentication templates
+- Dashboard layout
+- Mobile-friendly design
+- Custom block structure
+
 ### 🚀 Quick Start
 
 1. Install the extension from VS Code Marketplace
 2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
-3. Type "Django: Initialize New Project"
-4. Follow the prompts to create your project
+3. Type "Django" to see available commands:
+   - "Django: Initialize New Project" - Create new project
+   - "Django: Generate New App" - Add new app
+   - "Django: Setup Static Files" - Configure static files
+   - "Django: Scaffold Templates" - Set up templates
 
 ### ⚙️ Requirements
 
@@ -90,20 +108,10 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 |---------|-------------|
 | `Django: Initialize New Project` | Start the project creation wizard |
 | `Django: Generate New App` | Create a new Django app in your project |
-| `Django: Setup Static Files` | Configure static files for your project |
-| `Django: Scaffold Templates` | Set up template structure |
+| `Django: Setup Static Files` | Configure static files and media handling |
+| `Django: Scaffold Templates` | Set up Bootstrap-powered templates |
 
-### 🔄 What Gets Created
-
-When you run the project initialization:
-
-1. A new Django project with your chosen name
-2. A 'myapp' application (default app)
-3. Basic URL patterns and views
-4. Initial database migrations
-5. Ready-to-run development server
-
-### 📁 Project Structure
+### 🔄 Project Structure
 
 ```
 your-project/
@@ -113,29 +121,34 @@ your-project/
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-└── myapp/
-    ├── __init__.py
-    ├── admin.py
-    ├── apps.py
-    ├── models.py
-    ├── urls.py
-    └── views.py
+├── myapp/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── urls.py
+│   └── views.py
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   └── images/
+├── media/
+└── templates/
+    ├── base.html
+    ├── home.html
+    ├── login.html
+    └── dashboard.html
 ```
 
-### �� What's New in 1.0.2
+### 🆕 What's New in 1.0.3
 
-- Changed default app name from 'core' to 'myapp'
-- Improved app generation process
-- Enhanced project structure documentation
-- Updated VS Code engine compatibility to ^1.85.0
+- Added Static Files Helper with automatic configuration
+- Implemented Template Scaffolding with Bootstrap
+- Enhanced project structure with organized static files
+- Added responsive template layouts
 - Improved error handling and user feedback
-
-### 🔜 Upcoming Features
-
-- Static Files Helper
-- Template Scaffolding Tool
-- Database Configuration Wizard
-- Custom App Generator
+- Added detailed logging for better debugging
 
 ## 🤝 Contributing
 
