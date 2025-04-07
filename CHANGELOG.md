@@ -4,6 +4,32 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.3] - 2024-03-XX
+
+### Added
+- Static Files Helper command (`djangoKickstart.setupStatic`)
+  - Automatic creation of static and media directories
+  - Configuration of static files settings in settings.py
+  - Development media serving setup in urls.py
+  - Sample CSS file with basic styles
+- Template Scaffolding command (`djangoKickstart.generateTemplates`)
+  - Bootstrap 5 integration with responsive design
+  - Base template with navigation and common blocks
+  - Authentication templates (login, dashboard)
+  - Mobile-friendly layout structure
+
+### Enhanced
+- Improved error handling and logging system
+- Better progress indicators for long-running operations
+- More detailed command execution feedback
+- Comprehensive test coverage for new features
+
+### Fixed
+- Command registration and activation issues
+- Python installation detection and validation
+- Resource cleanup during deactivation
+- Documentation accuracy and completeness
+
 ## [1.0.2] - 2024-04-07
 
 ### Changed
