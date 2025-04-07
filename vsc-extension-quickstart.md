@@ -1,6 +1,6 @@
 <div align="center">
   <kbd>
-    <img src="media/logo.png" width="250" alt="Django Kick Start"/>
+    <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/globel%20assets/profile/image.jpg?raw=true" width="250" alt="Jamalihassan0307"/>
   </kbd>
   
   <h1>📚 Django Kick Start - Quick Start Guide 📚</h1>
