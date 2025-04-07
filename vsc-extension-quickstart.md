@@ -1,3 +1,30 @@
+<div align="center">
+  <kbd>
+    <img src="media/logo.png" width="250" alt="Django Kick Start"/>
+  </kbd>
+  
+  <h1>📚 Django Kick Start - Quick Start Guide 📚</h1>
+  <p><i>Get started with the Django Kick Start extension in minutes</i></p>
+  
+  <p align="center">
+    <a href="https://github.com/jamalihassan0307">
+      <img src="https://img.shields.io/badge/Created_by-Jam_Ali_Hassan-blue?style=for-the-badge&logo=github&logoColor=white" alt="Created by"/>
+    </a>
+  </p>
+
+  <p align="center">
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
+      <img src="https://img.shields.io/badge/VS_Code-1.85.0+-373277?style=for-the-badge&logo=visualstudio&logoColor=white" alt="VS Code"/>
+    </a>
+    <a href="https://www.python.org">
+      <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+    </a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
+      <img src="https://img.shields.io/badge/version-1.0.1-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+    </a>
+  </p>
+</div>
+
 # Welcome to Django Kick Start Extension
 
 ## What's in the folder
