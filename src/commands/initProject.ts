@@ -79,9 +79,9 @@ export async function initProject(context: vscode.ExtensionContext) {
 
             const projectPath = path.join(workspaceFolder, projectName);
             
-            // Create helper app
-            progress.report({ message: 'Creating helper app...' });
-            await executeCommand('python manage.py startapp ', projectPath);
+            // Create myapp app
+            progress.report({ message: 'Creating myapp app...' });
+            await executeCommand('python manage.py startapp myapp', projectPath);
 
             // Update settings.py
             progress.report({ message: 'Configuring project settings...' });
@@ -89,10 +89,10 @@ export async function initProject(context: vscode.ExtensionContext) {
             const settingsContent = await vscode.workspace.fs.readFile(vscode.Uri.file(settingsPath));
             let settings = settingsContent.toString();
             
-            // Add 'helper' to INSTALLED_APPS
+            // Add 'myapp' to INSTALLED_APPS
             settings = settings.replace(
                 'INSTALLED_APPS = [',
-                'INSTALLED_APPS = [\n    \'helper\','
+                'INSTALLED_APPS = [\n    \'myapp\','
             );
             
             await vscode.workspace.fs.writeFile(
@@ -113,7 +113,7 @@ export async function initProject(context: vscode.ExtensionContext) {
             
             urls = urls.replace(
                 'urlpatterns = [',
-                'urlpatterns = [\n    path(\'\', include(\'helper.urls\')),'
+                'urlpatterns = [\n    path(\'\', include(\'myapp.urls\')),'
             );
             
             await vscode.workspace.fs.writeFile(
@@ -121,9 +121,9 @@ export async function initProject(context: vscode.ExtensionContext) {
                 Buffer.from(urls, 'utf8')
             );
 
-            // Create helper/urls.py
-            const helperUrlsPath = path.join(projectPath, 'helper', 'urls.py');
-            const helperUrlsContent = `from django.urls import path
+            // Create myapp/urls.py
+            const myappUrlsPath = path.join(projectPath, 'myapp', 'urls.py');
+            const myappUrlsContent = `from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -131,12 +131,12 @@ urlpatterns = [
 ]
 `;
             await vscode.workspace.fs.writeFile(
-                vscode.Uri.file(helperUrlsPath),
-                Buffer.from(helperUrlsContent, 'utf8')
+                vscode.Uri.file(myappUrlsPath),
+                Buffer.from(myappUrlsContent, 'utf8')
             );
 
-            // Update helper/views.py
-            const viewsPath = path.join(projectPath, 'helper', 'views.py');
+            // Update myapp/views.py
+            const viewsPath = path.join(projectPath, 'myapp', 'views.py');
             const viewsContent = `from django.shortcuts import render
 from django.http import HttpResponse
 
