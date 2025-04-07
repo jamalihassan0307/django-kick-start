@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "publisher": "your-publisher-name",
   "engines": {
-    "vscode": "^1.99.0"
+    "vscode": "^1.99.0",
+    "node": "^16.0.0"
   },
   "categories": [
     "Programming Languages",
@@ -19,14 +20,17 @@
     "framework",
     "starter"
   ],
-  "icon": "media/logo.png",
+  "icon": "media/django-logo.png",
   "galleryBanner": {
     "color": "#1c2834",
     "theme": "dark"
   },
   "activationEvents": [
+    "workspaceContains:manage.py",
     "onCommand:django-kick-start.initProject",
-    "onCommand:django-kick-start.generateApp"
+    "onCommand:django-kick-start.generateApp",
+    "onCommand:django-kick-start.staticHelper",
+    "onCommand:django-kick-start.templateScaff"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -43,11 +47,13 @@
       },
       {
         "command": "django-kick-start.staticHelper",
-        "title": "Django: Setup Static Files"
+        "title": "Django: Setup Static Files",
+        "category": "Django Kick Start"
       },
       {
         "command": "django-kick-start.templateScaff",
-        "title": "Django: Scaffold Templates"
+        "title": "Django: Scaffold Templates",
+        "category": "Django Kick Start"
       }
     ]
   },
@@ -56,8 +62,8 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
     "@types/vscode": "^1.99.0",
