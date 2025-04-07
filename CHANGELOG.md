@@ -4,6 +4,18 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.4] - 2024-03-XX
+
+### Changed
+- Updated publisher name and repository links
+- Refreshed documentation with new username
+- Enhanced version compatibility information
+
+### Enhanced
+- Documentation accuracy with updated links
+- Repository reference consistency
+- Version number synchronization
+
 ## [1.0.3] - 2024-03-XX
 
 ### Added
