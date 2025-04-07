@@ -6,24 +6,70 @@ import { generateApp } from './commands/generateApp';
 import { staticHelper } from './commands/staticHelper';
 import { templateScaff } from './commands/templateScaff';
 
+let outputChannel: vscode.OutputChannel;
+
 // This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
+	// Create output channel
+	outputChannel = vscode.window.createOutputChannel('Django Kick Start');
+	outputChannel.show(true);
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Django Kick Start extension is now active!');
+	try {
+		// Log activation
+		const extensionDetails = vscode.extensions.getExtension('your-publisher-name.django-kick-start');
+		const version = extensionDetails?.packageJSON.version || '1.0.0';
+		outputChannel.appendLine(`Django Kick Start v${version} is activating...`);
 
-	// Register commands
-	let disposables = [
-		vscode.commands.registerCommand('django-kick-start.initProject', () => initProject(context)),
-		vscode.commands.registerCommand('django-kick-start.generateApp', () => generateApp(context)),
-		vscode.commands.registerCommand('django-kick-start.staticHelper', () => staticHelper(context)),
-		vscode.commands.registerCommand('django-kick-start.templateScaff', () => templateScaff(context))
-	];
+		// Register commands
+		const commands = [
+			{
+				command: 'django-kick-start.initProject',
+				callback: () => initProject(context)
+			},
+			{
+				command: 'django-kick-start.generateApp',
+				callback: () => generateApp(context)
+			},
+			{
+				command: 'django-kick-start.staticHelper',
+				callback: () => staticHelper(context)
+			},
+			{
+				command: 'django-kick-start.templateScaff',
+				callback: () => templateScaff(context)
+			}
+		];
 
-	context.subscriptions.push(...disposables);
+		// Register each command and add to subscriptions
+		commands.forEach(({ command, callback }) => {
+			const disposable = vscode.commands.registerCommand(command, callback);
+			context.subscriptions.push(disposable);
+			outputChannel.appendLine(`Registered command: ${command}`);
+		});
+
+		// Check Python installation
+		const terminal = vscode.window.createTerminal('Django Check');
+		terminal.sendText('python --version');
+		terminal.dispose();
+
+		outputChannel.appendLine('Django Kick Start extension activated successfully!');
+		vscode.window.showInformationMessage('Django Kick Start is ready!');
+
+	} catch (error) {
+		outputChannel.appendLine(`Activation error: ${error}`);
+		vscode.window.showErrorMessage('Failed to activate Django Kick Start extension');
+	}
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+	if (outputChannel) {
+		outputChannel.appendLine('Django Kick Start extension is deactivating...');
+		outputChannel.dispose();
+	}
+}
+
+// Export the output channel for use in other files
+export function getOutputChannel(): vscode.OutputChannel {
+	return outputChannel;
+}
