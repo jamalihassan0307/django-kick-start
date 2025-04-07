@@ -14,8 +14,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "django-kick-start.helloWorld",
-        "title": "Hello World"
+        "command": "django-kick-start.initProject",
+        "title": "Django: Initialize New Project"
+      },
+      {
+        "command": "django-kick-start.generateApp",
+        "title": "Django: Generate New App"
+      },
+      {
+        "command": "django-kick-start.staticHelper",
+        "title": "Django: Setup Static Files"
+      },
+      {
+        "command": "django-kick-start.templateScaff",
+        "title": "Django: Scaffold Templates"
       }
     ]
   },
