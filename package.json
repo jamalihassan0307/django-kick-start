@@ -26,11 +26,7 @@
     "theme": "dark"
   },
   "activationEvents": [
-    "workspaceContains:manage.py",
-    "onCommand:django-kick-start.initProject",
-    "onCommand:django-kick-start.generateApp",
-    "onCommand:django-kick-start.staticHelper",
-    "onCommand:django-kick-start.templateScaff"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
