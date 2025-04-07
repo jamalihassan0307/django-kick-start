@@ -4,6 +4,23 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.2] - 2024-04-07
+
+### Changed
+- Updated documentation with improved header design
+- Enhanced visual presentation in README and Quick Start Guide
+- Added comprehensive badges and social links
+
+### Enhanced
+- Documentation structure and readability
+- Visual branding and presentation
+- User guidance and installation instructions
+
+### Added
+- New header design with project logo
+- Social media and contact links
+- Additional badges for better visibility
+
 ## [1.0.1] - 2024-04-07
 
 ### Changed
