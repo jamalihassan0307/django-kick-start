@@ -1,71 +1,86 @@
-# django-kick-start README
+# Django Kick Start
 
-This is the README for your extension "django-kick-start". After writing up a brief description, we recommend including the following sections.
+A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
 
-## Features
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.99.0-brightgreen.svg)
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 🎯 Features
 
-For example if there is an image subfolder under your extension project workspace:
+### 1. Project Wizard (One-click Django Setup)
+- Interactive project creation with validation
+- Automatic environment checks (Python & Django)
+- Default app creation and configuration
+- Pre-configured URLs and views
+- Initial database setup
 
-\!\[feature X\]\(images/feature-x.png\)
+### 🚀 Quick Start
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Install the extension from VS Code Marketplace
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+3. Type "Django: Initialize New Project"
+4. Follow the prompts to create your project
 
-## Requirements
+### ⚙️ Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code ^1.99.0
+- Python 3.8 or higher
+- Django (will be installed automatically if missing)
 
-## Extension Settings
+### 📋 Command Reference
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+| Command | Description |
+|---------|-------------|
+| `Django: Initialize New Project` | Start the project creation wizard |
 
-For example:
+### 🔄 What Gets Created
 
-This extension contributes the following settings:
+When you run the project initialization:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+1. A new Django project with your chosen name
+2. A 'core' app automatically configured
+3. Basic URL patterns and views
+4. Initial database migrations
+5. Ready-to-run development server
 
-## Known Issues
+### 📁 Project Structure
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```
+your-project/
+├── manage.py
+├── your_project/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── core/
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── urls.py
+    └── views.py
+```
 
-## Release Notes
+### 🔜 Upcoming Features
 
-Users appreciate release notes as you update your extension.
+- Static Files Helper
+- Template Scaffolding Tool
+- Database Configuration Wizard
+- Custom App Generator
 
-### 1.0.0
+## 🤝 Contributing
 
-Initial release of ...
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### 1.0.1
+## 📝 License
 
-Fixed issue #.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### 1.1.0
+## 🐛 Known Issues
 
-Added features X, Y, and Z.
+See the [issue tracker](https://github.com/yourusername/django-kick-start/issues) for current issues.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Enjoy!** 🎉
