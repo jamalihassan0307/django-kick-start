@@ -25,7 +25,8 @@
     "theme": "dark"
   },
   "activationEvents": [
-    "onCommand:django-kick-start.initProject"
+    "onCommand:django-kick-start.initProject",
+    "onCommand:django-kick-start.generateApp"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -37,7 +38,8 @@
       },
       {
         "command": "django-kick-start.generateApp",
-        "title": "Django: Generate New App"
+        "title": "Django: Generate New App",
+        "category": "Django Kick Start"
       },
       {
         "command": "django-kick-start.staticHelper",
