@@ -7,19 +7,19 @@
   <p><i>A powerful VS Code extension for seamless Django project initialization and management</i></p>
   
   <p align="center">
-    <a href="https://github.com/jamalihassan0307">
+    <a href="https://github.com/yourusername">
       <img src="https://img.shields.io/badge/Created_by-Jam_Ali_Hassan-blue?style=for-the-badge&logo=github&logoColor=white" alt="Created by"/>
     </a>
   </p>
 
   <p align="center">
-    <a href="https://github.com/jamalihassan0307">
+    <a href="https://github.com/yourusername">
       <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
     </a>
-    <a href="https://www.linkedin.com/in/jamalihassan0307">
+    <a href="https://www.linkedin.com/in/yourusername">
       <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
     </a>
-    <a href="https://jamalihassan0307.github.io/portfolio.github.io">
+    <a href="https://yourusername.github.io/portfolio.github.io">
       <img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=About.me&logoColor=white" alt="Portfolio"/>
     </a>
   </p>
@@ -37,8 +37,8 @@
   </p>
 
   <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.3-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+    <a href="https://marketplace.visualstudio.com/items?itemName=yourusername.django-kick-start">
+      <img src="https://img.shields.io/badge/version-1.0.4-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
       <img src="https://img.shields.io/badge/Django-Latest-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
@@ -53,7 +53,7 @@
 
 A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
 
-![Version](https://img.shields.io/badge/version-1.0.3-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
 ## 🎯 Features
@@ -141,7 +141,7 @@ your-project/
     └── dashboard.html
 ```
 
-### 🆕 What's New in 1.0.3
+### �� What's New in 1.0.4
 
 - Added Static Files Helper with automatic configuration
 - Implemented Template Scaffolding with Bootstrap
