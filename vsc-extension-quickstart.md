@@ -20,7 +20,7 @@
       <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
     </a>
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.1-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.0.2-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
   </p>
 </div>
