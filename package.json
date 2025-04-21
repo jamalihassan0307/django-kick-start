@@ -16,7 +16,19 @@
     "python",
     "web",
     "framework",
-    "starter"
+    "starter",
+    "html",
+    "template",
+    "django-kick-start",
+    "django-extension",
+    "django-starter",
+    "django-template",
+    "django-html",
+    "django-extension",
+    "django-starter",
+    "django-template",
+    "jamalihassan0307",
+    "jamalihassan"
   ],
   "icon": "media/logo.png",
   "galleryBanner": {
