@@ -70,6 +70,11 @@
         "command": "django-kick-start.createstatic",
         "title": "Django: Create Static File",
         "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.runServer",
+        "title": "Django: Run Development Server",
+        "category": "Django Kick Start"
       }
     ]
   },
@@ -95,7 +100,7 @@
     "@vscode/test-electron": "^2.3.8"
   },
   "repository": {
-    "type": "git",
+    "type": "git", 
     "url": "https://github.com/jamalihassan0307/django-kick-start"
   },
   "bugs": {

@@ -95,6 +95,37 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
    - "Django: Generate New App" - Add new app
    - "Django: Setup Static Files" - Configure static files
    - "Django: Scaffold Templates" - Set up templates
+   - "Django: Run Development Server" - Start development server
+
+### Debugging Your Project
+
+You can start the development server in three ways:
+
+1. Using the Command Palette:
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+   - Type "Django: Run Development Server"
+   - Choose between "Run Server" or "Debug Server" mode
+   - The server will start in a new terminal
+
+2. Using VS Code Debug (F5):
+   - Press `F5` or click the "Run and Debug" button
+   - Select one of these configurations:
+     - "Django: Run Server" - For normal development
+     - "Django: Debug Server" - For debugging with breakpoints
+   - The server will start with appropriate settings
+
+3. Using the Run Button:
+   - Click the "Run and Debug" button in the sidebar
+   - Select the desired configuration
+   - Click the green play button
+
+Debug Mode Tips:
+- Use "Django: Debug Server" when you need to set breakpoints
+- The `--noreload` flag is automatically added in debug mode
+- Breakpoints will work in your views, models, and other Python files
+- The debug console will show Django's output and any print statements
+
+The server will run on `http://127.0.0.1:8000/` by default.
 
 ### ⚙️ Requirements
 
@@ -112,6 +143,7 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 | `Django: Scaffold Templates` | Set up Bootstrap-powered templates |
 | `Django: Create HTML Template` | Create a new HTML template with automatic view integration |
 | `Django: Create Static File` | Creates CSS or JavaScript files with proper structure |
+| `Django: Run Development Server` | Start the Django development server |
 
 ### 🔄 Project Structure
 
@@ -143,15 +175,7 @@ your-project/
     └── dashboard.html
 ```
 
-### �� What's New in 1.0.6
-
-- Added Static File Creation command
-  - Create CSS and JavaScript files with proper structure
-  - Support for nested directories (e.g., `css/main.css`, `js/scripts.js`)
-  - Automatic directory creation
-  - Basic template content generation
-
-## 🤝 Contributing
+### 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
