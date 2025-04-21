@@ -12,7 +12,7 @@ export async function createHtml() {
 
         // Ask for HTML file path
         const htmlPath = await vscode.window.showInputBox({
-            prompt: 'Enter HTML file path (e.g., a/b/index.html)',
+            prompt: 'Enter HTML file path (e.g., path/index.html)',
             placeHolder: 'path/to/template.html',
             validateInput: (value: string) => {
                 if (!value.endsWith('.html')) {
