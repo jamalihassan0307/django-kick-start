@@ -4,6 +4,18 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.1] - 2024-03-21
+
+### Changed
+- Updated version number to 1.1.1
+- Enhanced GIF demonstrations in documentation
+- Improved visual presentation of features
+
+### Added
+- Full-width GIF displays in README and Quick Start Guide
+- Better visual organization of feature demonstrations
+- Enhanced documentation layout
+
 ## [1.1.0] - 2024-03-21
 
 ### Changed

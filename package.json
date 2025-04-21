@@ -2,7 +2,7 @@
   "name": "django-kick-start",
   "displayName": "Django Kick Start",
   "description": "A VS Code extension to kickstart Django development",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "jamalihassan0307",
   "engines": {
     "vscode": "^1.85.0",
