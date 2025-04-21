@@ -27,6 +27,58 @@
 
 # Welcome to Django Kick Start Extension
 
+## 🎥 Visual Guide
+
+<div align="center">
+  <h3>✨ Feature Walkthrough ✨</h3>
+  
+  <table>
+    <tr>
+      <td align="center">
+        <img src="gif/initProject.gif" alt="Initialize Project" width="400"/>
+        <br>
+        <strong>1. Initialize Project</strong>
+      </td>
+      <td align="center">
+        <img src="gif/generateApp.gif" alt="Generate App" width="400"/>
+        <br>
+        <strong>2. Generate App</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="gif/staticHelper.gif" alt="Static Helper" width="400"/>
+        <br>
+        <strong>3. Static Helper</strong>
+      </td>
+      <td align="center">
+        <img src="gif/templateScaff.gif" alt="Template Scaffolding" width="400"/>
+        <br>
+        <strong>4. Template Scaffolding</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="gif/createhtml.gif" alt="Create HTML" width="400"/>
+        <br>
+        <strong>5. Create HTML</strong>
+      </td>
+      <td align="center">
+        <img src="gif/createstatic.gif" alt="Create Static" width="400"/>
+        <br>
+        <strong>6. Create Static</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2">
+        <img src="gif/runServer with F5.gif" alt="Run Server" width="400"/>
+        <br>
+        <strong>7. Run Server with F5</strong>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## Features and Commands
 
 ### 1. Project Initialization (`Django: Initialize New Project`)

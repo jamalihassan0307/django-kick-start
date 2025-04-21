@@ -56,6 +56,58 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 [![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
+## 🎥 Demo
+
+<div align="center">
+  <h3>✨ Feature Demonstrations ✨</h3>
+  
+  <table>
+    <tr>
+      <td align="center">
+        <img src="gif/initProject.gif" alt="Initialize Project" width="400"/>
+        <br>
+        <strong>Initialize Project</strong>
+      </td>
+      <td align="center">
+        <img src="gif/generateApp.gif" alt="Generate App" width="400"/>
+        <br>
+        <strong>Generate App</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="gif/staticHelper.gif" alt="Static Helper" width="400"/>
+        <br>
+        <strong>Static Helper</strong>
+      </td>
+      <td align="center">
+        <img src="gif/templateScaff.gif" alt="Template Scaffolding" width="400"/>
+        <br>
+        <strong>Template Scaffolding</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="gif/createhtml.gif" alt="Create HTML" width="400"/>
+        <br>
+        <strong>Create HTML</strong>
+      </td>
+      <td align="center">
+        <img src="gif/createstatic.gif" alt="Create Static" width="400"/>
+        <br>
+        <strong>Create Static</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2">
+        <img src="gif/runServer with F5.gif" alt="Run Server" width="400"/>
+        <br>
+        <strong>Run Server with F5</strong>
+      </td>
+    </tr>
+  </table>
+</div>
+
 ## 🎯 Features
 
 ### 1. Project Wizard (One-click Django Setup)
