@@ -6,6 +6,7 @@ import { generateApp } from './commands/generateApp';
 import { staticHelper } from './commands/staticHelper';
 import { templateScaff } from './commands/templateScaff';
 import { createHtml } from './commands/createHtml';
+import { createStatic } from './commands/createStatic';
 
 // Create output channel for logging
 let outputChannel: vscode.OutputChannel;
@@ -46,6 +47,11 @@ export function activate(context: vscode.ExtensionContext) {
 				id: 'django-kick-start.createhtml',
 				handler: createHtml,
 				title: 'Create HTML Template'
+			},
+			{
+				id: 'django-kick-start.createstatic',
+				handler: createStatic,
+				title: 'Create Static File'
 			}
 		];
 
