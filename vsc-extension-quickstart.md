@@ -20,7 +20,7 @@
       <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
     </a>
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.4-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.0.5-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
   </p>
 </div>
@@ -101,7 +101,7 @@ your-project/
 * Set breakpoints in `src/extension.ts`
 * Monitor the Debug Console for errors
 
-## Recent Updates (v1.0.4)
+## Recent Updates (v1.0.5)
 
 * Updated publisher information
 * Refreshed documentation links

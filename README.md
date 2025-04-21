@@ -38,7 +38,7 @@
 
   <p align="center">
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.4-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.0.5-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
       <img src="https://img.shields.io/badge/Django-Latest-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
@@ -53,7 +53,7 @@
 
 A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
 
-![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.5-blue.svg)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
 ## 🎯 Features
@@ -142,7 +142,7 @@ your-project/
     └── dashboard.html
 ```
 
-### 🆕 What's New in 1.0.4
+### 🆕 What's New in 1.0.5
 
 - Added HTML Template Creation command
   - Create HTML files with proper path handling

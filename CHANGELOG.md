@@ -4,6 +4,22 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.5] - 2024-03-XX
+
+### Added
+- HTML Template Creation command
+  - Create HTML files with proper path handling
+  - Automatic directory creation
+  - View function generation
+  - URL pattern configuration
+  - Basic template structure
+
+### Enhanced
+- Improved template creation workflow
+- Better error handling for file operations
+- Enhanced URL pattern management
+- Streamlined view function generation
+
 ## [1.0.4] - 2024-03-XX
 
 ### Changed
