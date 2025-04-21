@@ -4,6 +4,18 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.0] - 2024-03-21
+
+### Changed
+- Updated version number to 1.1.0
+- Improved Django server debugging capabilities
+- Enhanced launch configurations for better development experience
+
+### Added
+- New server debugging features
+- Improved terminal integration
+- Enhanced error handling for server operations
+
 ## [1.0.6] - 2024-03-21
 
 ### Added
