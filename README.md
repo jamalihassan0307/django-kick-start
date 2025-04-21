@@ -110,6 +110,7 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 | `Django: Generate New App` | Create a new Django app in your project |
 | `Django: Setup Static Files` | Configure static files and media handling |
 | `Django: Scaffold Templates` | Set up Bootstrap-powered templates |
+| `Django: Create HTML Template` | Create a new HTML template with automatic view integration |
 
 ### 🔄 Project Structure
 
@@ -141,14 +142,17 @@ your-project/
     └── dashboard.html
 ```
 
-### �� What's New in 1.0.4
+### 🆕 What's New in 1.0.4
 
-- Added Static Files Helper with automatic configuration
-- Implemented Template Scaffolding with Bootstrap
-- Enhanced project structure with organized static files
-- Added responsive template layouts
-- Improved error handling and user feedback
-- Added detailed logging for better debugging
+- Added HTML Template Creation command
+  - Create HTML files with proper path handling
+  - Automatic directory creation
+  - View function generation
+  - Basic template structure
+- Updated publisher information
+- Refreshed documentation links
+- Enhanced version compatibility
+- Improved repository references
 
 ## 🤝 Contributing
 

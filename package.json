@@ -30,6 +30,7 @@
   "contributes": {
     "commands": [
       {
+        
         "command": "django-kick-start.initProject",
         "title": "Django: Initialize New Project",
         "category": "Django Kick Start"
@@ -47,6 +48,11 @@
       {
         "command": "django-kick-start.templateScaff",
         "title": "Django: Scaffold Templates",
+        "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.createhtml",
+        "title": "Django: Create HTML Template",
         "category": "Django Kick Start"
       }
     ]

@@ -5,6 +5,7 @@ import { initProject } from './commands/initProject';
 import { generateApp } from './commands/generateApp';
 import { staticHelper } from './commands/staticHelper';
 import { templateScaff } from './commands/templateScaff';
+import { createHtml } from './commands/createHtml';
 
 // Create output channel for logging
 let outputChannel: vscode.OutputChannel;
@@ -40,6 +41,11 @@ export function activate(context: vscode.ExtensionContext) {
 				id: 'django-kick-start.templateScaff',
 				handler: templateScaff,
 				title: 'Scaffold Templates'
+			},
+			{
+				id: 'django-kick-start.createhtml',
+				handler: createHtml,
+				title: 'Create HTML Template'
 			}
 		];
 
