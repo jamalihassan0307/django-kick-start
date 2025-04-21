@@ -61,46 +61,52 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 <div align="center">
   <h3>✨ Feature Demonstrations ✨</h3>
   
-  <table>
+  <table style="width:100%">
     <tr>
       <td align="center">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/initProject.gif?raw=true" alt="Initialize Project" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/initProject.gif?raw=true" alt="Initialize Project" style="width:100%"/>
         <br>
         <strong>Initialize Project</strong>
       </td>
+    </tr>
+    <tr>
       <td align="center">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/generateApp.gif?raw=true" alt="Generate App" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/generateApp.gif?raw=true" alt="Generate App" style="width:100%"/>
         <br>
         <strong>Generate App</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/staticHelper.gif?raw=true" alt="Static Helper" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/staticHelper.gif?raw=true" alt="Static Helper" style="width:100%"/>
         <br>
         <strong>Static Helper</strong>
       </td>
+    </tr>
+    <tr>
       <td align="center">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/templateScaff.gif?raw=true" alt="Template Scaffolding" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/templateScaff.gif?raw=true" alt="Template Scaffolding" style="width:100%"/>
         <br>
         <strong>Template Scaffolding</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createhtml.gif?raw=true" alt="Create HTML" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createhtml.gif?raw=true" alt="Create HTML" style="width:100%"/>
         <br>
         <strong>Create HTML</strong>
       </td>
+    </tr>
+    <tr>
       <td align="center">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createstatic.gif?raw=true" alt="Create Static" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createstatic.gif?raw=true" alt="Create Static" style="width:100%"/>
         <br>
         <strong>Create Static</strong>
       </td>
     </tr>
     <tr>
-      <td align="center" colspan="2">
-        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/runServer with F5.gif?raw=true" alt="Run Server" width="400"/>
+      <td align="center">
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/runServer with F5.gif?raw=true" alt="Run Server" style="width:100%"/>
         <br>
         <strong>Run Server with F5</strong>
       </td>
