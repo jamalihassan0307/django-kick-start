@@ -37,6 +37,7 @@ export async function createHtml() {
 
         // Create HTML file with basic structure
         const fileName = path.basename(htmlPath, '.html');
+        const viewName = fileName.replace(/[^a-zA-Z0-9]/g, '_');
         const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +62,6 @@ export async function createHtml() {
             let viewsContent = fs.readFileSync(viewsPath, 'utf8');
             
             // Add new view if it doesn't exist
-            const viewName = fileName.replace(/[^a-zA-Z0-9]/g, '_');
             const viewFunction = `\ndef ${viewName}(request):\n    return render(request, '${htmlPath}')\n`;
             
             if (!viewsContent.includes(`def ${viewName}(request)`)) {
@@ -70,8 +70,37 @@ export async function createHtml() {
             }
         }
 
+        // Update urls.py
+        const urlsPath = path.join(workspaceFolder.uri.fsPath, 'myapp', 'urls.py');
+        if (fs.existsSync(urlsPath)) {
+            let urlsContent = fs.readFileSync(urlsPath, 'utf8');
+            
+            // Add URL pattern if it doesn't exist
+            const urlPattern = `\n    path('${fileName}/', views.${viewName}, name='${viewName}'),`;
+            
+            if (!urlsContent.includes(`path('${fileName}/'`)) {
+                // Find the urlpatterns list
+                const urlPatternsIndex = urlsContent.indexOf('urlpatterns = [');
+                if (urlPatternsIndex !== -1) {
+                    // Find the closing bracket of urlpatterns
+                    let bracketCount = 1;
+                    let currentIndex = urlPatternsIndex + 'urlpatterns = ['.length;
+                    
+                    while (bracketCount > 0 && currentIndex < urlsContent.length) {
+                        if (urlsContent[currentIndex] === '[') bracketCount++;
+                        if (urlsContent[currentIndex] === ']') bracketCount--;
+                        currentIndex++;
+                    }
+                    
+                    // Insert the new URL pattern before the closing bracket
+                    urlsContent = urlsContent.slice(0, currentIndex - 1) + urlPattern + urlsContent.slice(currentIndex - 1);
+                    fs.writeFileSync(urlsPath, urlsContent);
+                }
+            }
+        }
+
         // Show success message
-        vscode.window.showInformationMessage(`Created HTML template: ${htmlPath}`);
+        vscode.window.showInformationMessage(`Created HTML template: ${htmlPath} and updated views.py and urls.py`);
         
         // Open the created file
         const doc = await vscode.workspace.openTextDocument(fullPath);
