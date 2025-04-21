@@ -4,6 +4,19 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.6] - 2024-03-21
+
+### Added
+- New command: `Django: Create Static File`
+  - Create CSS and JavaScript files with proper structure
+  - Support for nested directories
+  - Automatic directory creation
+  - Basic template content generation
+
+### Changed
+- Updated version number to 1.0.6
+- Enhanced documentation for static file creation
+
 ## [1.0.5] - 2024-03-XX
 
 ### Added

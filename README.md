@@ -38,7 +38,7 @@
 
   <p align="center">
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.0.5-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.0.6-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
       <img src="https://img.shields.io/badge/Django-Latest-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
@@ -53,7 +53,7 @@
 
 A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
 
-![Version](https://img.shields.io/badge/version-1.0.5-blue.svg)
+[![Version](https://img.shields.io/badge/version-1.0.6-blue.svg)](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
 ## 🎯 Features
@@ -111,6 +111,7 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 | `Django: Setup Static Files` | Configure static files and media handling |
 | `Django: Scaffold Templates` | Set up Bootstrap-powered templates |
 | `Django: Create HTML Template` | Create a new HTML template with automatic view integration |
+| `Django: Create Static File` | Creates CSS or JavaScript files with proper structure |
 
 ### 🔄 Project Structure
 
@@ -142,17 +143,13 @@ your-project/
     └── dashboard.html
 ```
 
-### 🆕 What's New in 1.0.5
+### �� What's New in 1.0.6
 
-- Added HTML Template Creation command
-  - Create HTML files with proper path handling
+- Added Static File Creation command
+  - Create CSS and JavaScript files with proper structure
+  - Support for nested directories (e.g., `css/main.css`, `js/scripts.js`)
   - Automatic directory creation
-  - View function generation
-  - Basic template structure
-- Updated publisher information
-- Refreshed documentation links
-- Enhanced version compatibility
-- Improved repository references
+  - Basic template content generation
 
 ## 🤝 Contributing
 
