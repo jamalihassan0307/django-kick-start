@@ -35,43 +35,43 @@
   <table>
     <tr>
       <td align="center">
-        <img src="gif/initProject.gif" alt="Initialize Project" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/initProject.gif?raw=true" alt="Initialize Project" width="400"/>
         <br>
         <strong>1. Initialize Project</strong>
       </td>
       <td align="center">
-        <img src="gif/generateApp.gif" alt="Generate App" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/generateApp.gif?raw=true" alt="Generate App" width="400"/>
         <br>
         <strong>2. Generate App</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="gif/staticHelper.gif" alt="Static Helper" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/staticHelper.gif?raw=true" alt="Static Helper" width="400"/>
         <br>
         <strong>3. Static Helper</strong>
       </td>
       <td align="center">
-        <img src="gif/templateScaff.gif" alt="Template Scaffolding" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/templateScaff.gif?raw=true" alt="Template Scaffolding" width="400"/>
         <br>
         <strong>4. Template Scaffolding</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="gif/createhtml.gif" alt="Create HTML" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createhtml.gif?raw=true" alt="Create HTML" width="400"/>
         <br>
         <strong>5. Create HTML</strong>
       </td>
       <td align="center">
-        <img src="gif/createstatic.gif" alt="Create Static" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createstatic.gif?raw=true" alt="Create Static" width="400"/>
         <br>
         <strong>6. Create Static</strong>
       </td>
     </tr>
     <tr>
       <td align="center" colspan="2">
-        <img src="gif/runServer with F5.gif" alt="Run Server" width="400"/>
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/runServer with F5.gif?raw=true" alt="Run Server" width="400"/>
         <br>
         <strong>7. Run Server with F5</strong>
       </td>
