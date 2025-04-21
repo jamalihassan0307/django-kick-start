@@ -2,7 +2,7 @@
   "name": "django-kick-start",
   "displayName": "Django Kick Start",
   "description": "A VS Code extension to kickstart Django development",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publisher": "jamalihassan0307",
   "engines": {
     "vscode": "^1.85.0",
@@ -42,7 +42,6 @@
   "contributes": {
     "commands": [
       {
-        
         "command": "django-kick-start.initProject",
         "title": "Django: Initialize New Project",
         "category": "Django Kick Start"
@@ -65,6 +64,11 @@
       {
         "command": "django-kick-start.createhtml",
         "title": "Django: Create HTML Template",
+        "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.createstatic",
+        "title": "Django: Create Static File",
         "category": "Django Kick Start"
       }
     ]
