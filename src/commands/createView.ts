@@ -48,7 +48,7 @@ export async function createView() {
             let viewsContent = fs.readFileSync(viewsPath, 'utf8');
             
             // Add new view if it doesn't exist
-            const viewFunction = `\ndef ${viewName}(request):\n    return render(request, '${viewName}.html')\n`;
+            const viewFunction = `\ndef ${viewName}(request):\n    return HttpResponse('${viewName} view response')\n`;
             
             if (!viewsContent.includes(`def ${viewName}(request)`)) {
                 viewsContent += viewFunction;
