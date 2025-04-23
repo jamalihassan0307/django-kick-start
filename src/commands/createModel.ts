@@ -200,25 +200,31 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
         throw new Error(`Models file not found at ${modelsPath}`);
     }
 
-    // Generate model code
-    let modelCode = `class ${modelName}(models.Model):\n`;
+    // Generate clean model code
+    let modelCode = `from django.db import models\n\n`;
+    modelCode += `class ${modelName}(models.Model):\n`;
     fields.forEach(field => {
-        // Add max_length for CharField if not specified
+        // Clean up field options
+        let options = field.options;
         if (field.type === 'CharField') {
             // Remove any existing max_length parameter
-            field.options = field.options.replace(/max_length=\d+,\s*/g, '');
+            options = options.replace(/max_length=\d+,\s*/g, '');
+            // Remove any positional arguments
+            options = options.replace(/,\s*\d+/g, '');
             // Add max_length=100 if not present
-            if (!field.options.includes('max_length')) {
-                field.options = `max_length=100, ${field.options}`;
+            if (!options.includes('max_length')) {
+                options = `max_length=100${options ? ', ' + options : ''}`;
             }
         }
-        modelCode += `    ${field.name} = models.${field.type}(${field.options})\n`;
+        // Clean up any trailing commas
+        options = options.replace(/,\s*$/, '');
+        modelCode += `    ${field.name} = models.${field.type}(${options})\n`;
     });
     modelCode += '\n    def __str__(self):\n';
     modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
 
-    // Append model to models.py
-    fs.appendFileSync(modelsPath, '\n\n' + modelCode);
+    // Write clean model code to models.py
+    fs.writeFileSync(modelsPath, modelCode);
 
     // Generate views code
     const modelNameLower = modelName.toLowerCase();
