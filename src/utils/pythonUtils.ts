@@ -56,4 +56,19 @@ export function validateProjectName(name: string): string | undefined {
         return 'Project name cannot be "django"';
     }
     return undefined;
+}
+
+export async function runTerminalCommand(command: string): Promise<void> {
+    const terminal = vscode.window.createTerminal('Django Kick Start');
+    terminal.show();
+    terminal.sendText(command);
+    
+    return new Promise((resolve) => {
+        const disposable = vscode.window.onDidCloseTerminal((closedTerminal) => {
+            if (closedTerminal === terminal) {
+                disposable.dispose();
+                resolve();
+            }
+        });
+    });
 } 
