@@ -52,7 +52,7 @@ db.sqlite3-journal
 static/
 
 # TypeScript
-*.js
+
 *.js.map
 *.d.ts
 !jest.config.js
