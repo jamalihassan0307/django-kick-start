@@ -256,16 +256,20 @@ def edit_${modelNameLower}(request, id):
     // Append views to views.py
     fs.appendFileSync(viewsPath, viewsCode);
 
-    // Generate URLs code
-    const urlsCode = `
+    // Generate URLs code with proper indentation
+    const urlsCode = `from django.urls import path
+from . import views
+
+urlpatterns = [
     path('${modelNameLower}/create/', views.create_${modelNameLower}, name='create_${modelNameLower}'),
     path('${modelNameLower}/', views.fetch_${modelNameLower}, name='fetch_${modelNameLower}'),
     path('${modelNameLower}/delete/<int:id>/', views.delete_${modelNameLower}, name='delete_${modelNameLower}'),
     path('${modelNameLower}/edit/<int:id>/', views.edit_${modelNameLower}, name='edit_${modelNameLower}'),
+]
 `;
 
-    // Append URLs to urls.py
-    fs.appendFileSync(urlsPath, urlsCode);
+    // Write URLs to urls.py (overwrite if exists)
+    fs.writeFileSync(urlsPath, urlsCode);
 
     // Create migrations
     const terminal = vscode.window.createTerminal('Django Migrations');
