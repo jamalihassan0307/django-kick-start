@@ -20,7 +20,7 @@
       <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
     </a>
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.1.1-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.1.3-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
   </p>
 </div>
@@ -124,6 +124,14 @@
   * Dashboard layout
   * Mobile-friendly design
   * Custom block structure for easy extension
+
+### 8. View and URL Creation (`Django: Create View and URL`)
+* Creates new Django views with:
+  * HTTP response instead of HTML templates
+  * Custom view name support
+  * URL pattern configuration
+  * Automatic URL pattern registration
+  * View name and URL pattern validation
 
 ## Project Structure
 

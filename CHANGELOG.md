@@ -4,6 +4,22 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.3] - 2024-03-21
+
+### Added
+- New command: `Django: Create View and URL`
+  - Create views with HTTP response
+  - Automatic URL pattern configuration
+  - View name validation
+  - URL pattern validation
+  - No HTML template creation
+
+### Enhanced
+- Improved view creation workflow
+- Better error handling for view operations
+- Enhanced URL pattern management
+- Streamlined view function generation
+
 ## [1.1.2] - 2024-03-21
 
 ### Added

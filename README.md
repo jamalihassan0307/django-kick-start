@@ -38,7 +38,7 @@
 
   <p align="center">
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.1.2-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.1.3-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
       <img src="https://img.shields.io/badge/Django-Latest-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
@@ -53,7 +53,7 @@
 
 A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
 
-[![Version](https://img.shields.io/badge/version-1.1.2-blue.svg)](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)
+[![Version](https://img.shields.io/badge/version-1.1.3-blue.svg)](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
@@ -253,16 +253,17 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 See the [issue tracker](https://github.com/jamalihassan0307/django-kick-start/issues) for current issues.
 
-## What's New in 1.1.2
+## What's New in 1.1.3
 
-### Migration Creation
-- Added new `Django: Create Migration` command
-- Interactive migration creation wizard
-- Automatic model detection
-- Visual feedback during migration process
-- Support for multiple model migrations
+### View and URL Creation
+- Added new `Django: Create View and URL` command
+- Create views with HTTP response
+- Automatic URL pattern configuration
+- View name validation
+- URL pattern validation
+- No HTML template creation
 
-![Migration Creation](https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/migration%20create.gif?raw=true)
+![View Creation](https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/view%20create.gif?raw=true)
 
 ---
 
