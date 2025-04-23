@@ -204,8 +204,13 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
     let modelCode = `class ${modelName}(models.Model):\n`;
     fields.forEach(field => {
         // Add max_length for CharField if not specified
-        if (field.type === 'CharField' && !field.options.includes('max_length')) {
-            field.options = `max_length=100, ${field.options}`;
+        if (field.type === 'CharField') {
+            // Remove any existing max_length parameter
+            field.options = field.options.replace(/max_length=\d+,\s*/g, '');
+            // Add max_length=100 if not present
+            if (!field.options.includes('max_length')) {
+                field.options = `max_length=100, ${field.options}`;
+            }
         }
         modelCode += `    ${field.name} = models.${field.type}(${field.options})\n`;
     });
