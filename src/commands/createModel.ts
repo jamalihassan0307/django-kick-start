@@ -54,7 +54,7 @@ export async function createModel(context: vscode.ExtensionContext) {
     // Handle messages from the webview
     panel.webview.onDidReceiveMessage(
         async message => {
-            console.log('Received message:', message);
+            console.log('Received message from webview:', message);
             
             switch (message.command) {
                 case 'createModel':
@@ -98,7 +98,9 @@ export async function createModel(context: vscode.ExtensionContext) {
     );
 
     // Send initial message to webview
-    panel.webview.postMessage({ command: 'ready' });
+    setTimeout(() => {
+        panel.webview.postMessage({ command: 'ready' });
+    }, 1000);
 }
 
 function getWebviewContent(context: vscode.ExtensionContext, panel: vscode.WebviewPanel): string {
