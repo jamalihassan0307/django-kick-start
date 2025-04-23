@@ -211,13 +211,16 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
             options = options.replace(/max_length=\d+,\s*/g, '');
             // Remove any positional arguments
             options = options.replace(/,\s*\d+/g, '');
+            // Remove any duplicate max_length
+            options = options.replace(/max_length=\d+/g, '');
+            // Clean up any extra commas
+            options = options.replace(/,\s*,/g, ',');
+            options = options.replace(/,\s*$/, '');
             // Add max_length=100 if not present
             if (!options.includes('max_length')) {
                 options = `max_length=100${options ? ', ' + options : ''}`;
             }
         }
-        // Clean up any trailing commas
-        options = options.replace(/,\s*$/, '');
         modelCode += `    ${field.name} = models.${field.type}(${options})\n`;
     });
     modelCode += '\n    def __str__(self):\n';
