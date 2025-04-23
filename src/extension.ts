@@ -9,6 +9,7 @@ import { createHtml } from './commands/createHtml';
 import { createStatic } from './commands/createStatic';
 import { runServer } from './commands/runServer';
 import { createModel } from './commands/createModel';
+import { createView } from './commands/createView';
 
 // Create output channel for logging
 let outputChannel: vscode.OutputChannel;
@@ -64,6 +65,11 @@ export function activate(context: vscode.ExtensionContext) {
 				id: 'django-kick-start.createModel',
 				handler: createModel,
 				title: 'Django: Create Model'
+			},
+			{
+				id: 'django-kick-start.createView',
+				handler: createView,
+				title: 'Django: Create View and URL'
 			}
 		];
 

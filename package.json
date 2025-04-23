@@ -111,6 +111,11 @@
         "command": "django-kick-start.runServer",
         "title": "Django: Run Development Server",
         "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.createView",
+        "title": "Django: Create View and URL",
+        "category": "Django Kick Start"
       }
     ]
   },
