@@ -200,9 +200,8 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
         throw new Error(`Models file not found at ${modelsPath}`);
     }
 
-    // Generate clean model code
-    let modelCode = `from django.db import models\n\n`;
-    modelCode += `class ${modelName}(models.Model):\n`;
+    // Generate model code
+    let modelCode = `class ${modelName}(models.Model):\n`;
     fields.forEach(field => {
         let options = field.options;
         
@@ -239,8 +238,20 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
     modelCode += '\n    def __str__(self):\n';
     modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
 
-    // Write clean model code to models.py
-    fs.writeFileSync(modelsPath, modelCode);
+    // Handle models.py file
+    if (fs.existsSync(modelsPath)) {
+        // Read existing content
+        const existingContent = fs.readFileSync(modelsPath, 'utf8');
+        // Check if the model already exists
+        if (!existingContent.includes(`class ${modelName}(models.Model):`)) {
+            // Append new model if it doesn't exist
+            fs.appendFileSync(modelsPath, '\n\n' + modelCode);
+        }
+    } else {
+        // If models.py doesn't exist, create it with initial imports
+        const initialContent = `from django.db import models\n\n${modelCode}`;
+        fs.writeFileSync(modelsPath, initialContent);
+    }
 
     // Generate views code
     const modelNameLower = modelName.toLowerCase();
@@ -275,7 +286,7 @@ def edit_${modelNameLower}(request, id):
     return render(request, '${appName}/edit_${modelNameLower}.html', {'${modelNameLower}': ${modelNameLower}})
 `;
 
-    // Append views to views.py instead of replacing
+    // Handle views.py file
     if (fs.existsSync(viewsPath)) {
         // Read existing content
         const existingContent = fs.readFileSync(viewsPath, 'utf8');
@@ -311,7 +322,9 @@ ${viewsCode}`;
                 (match, content) => {
                     // Remove trailing comma if exists
                     const cleanContent = content.replace(/,\s*$/, '');
-                    return `urlpatterns = [${cleanContent}${urlsCode}\n]`;
+                    // Add comma if content is not empty
+                    const separator = cleanContent.trim() ? ',\n' : '\n';
+                    return `urlpatterns = [${cleanContent}${separator}${urlsCode}\n]`;
                 }
             );
             fs.writeFileSync(urlsPath, updatedContent);
@@ -513,4 +526,4 @@ function generateEditTemplate(modelName: string, fields: Field[]): string {
 {% endblock %}
 `;
     return template;
-} 
+}
