@@ -74,12 +74,12 @@
     "commands": [
       {
         "command": "django-kick-start.initProject",
-        "title": "Django: Initialize New Project",
+        "title": "Django: Initialize Project",
         "category": "Django Kick Start"
       },
       {
         "command": "django-kick-start.generateApp",
-        "title": "Django: Generate New App",
+        "title": "Django: Generate App",
         "category": "Django Kick Start"
       },
       {
@@ -89,7 +89,12 @@
       },
       {
         "command": "django-kick-start.templateScaff",
-        "title": "Django: Scaffold Templates",
+        "title": "Django: Generate Templates",
+        "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.createModel",
+        "title": "Django: Create Model",
         "category": "Django Kick Start"
       },
       {

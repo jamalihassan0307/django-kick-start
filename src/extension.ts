@@ -8,6 +8,7 @@ import { templateScaff } from './commands/templateScaff';
 import { createHtml } from './commands/createHtml';
 import { createStatic } from './commands/createStatic';
 import { runServer } from './commands/runServer';
+import { createModel } from './commands/createModel';
 
 // Create output channel for logging
 let outputChannel: vscode.OutputChannel;
@@ -58,6 +59,11 @@ export function activate(context: vscode.ExtensionContext) {
 				id: 'django-kick-start.runServer',
 				handler: runServer,
 				title: 'Run Development Server'
+			},
+			{
+				id: 'django-kick-start.createModel',
+				handler: createModel,
+				title: 'Django: Create Model'
 			}
 		];
 
