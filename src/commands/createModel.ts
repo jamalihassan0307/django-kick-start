@@ -34,118 +34,177 @@ interface Field {
 }
 
 export async function createModel(context: vscode.ExtensionContext) {
-    try {
-        // Get model name
-        const modelName = await vscode.window.showInputBox({
-            prompt: 'Enter model name (e.g., Artist)',
-            placeHolder: 'Model name'
-        });
-
-        if (!modelName) {
-            return;
+    // Create and show panel
+    const panel = vscode.window.createWebviewPanel(
+        'djangoModelCreator',
+        'Django Model Creator',
+        vscode.ViewColumn.One,
+        {
+            enableScripts: true,
+            retainContextWhenHidden: true,
+            localResourceRoots: [
+                vscode.Uri.joinPath(context.extensionUri, 'media')
+            ]
         }
+    );
 
-        const fields: Field[] = [];
-        let addMoreFields = true;
+    // Get the HTML content
+    panel.webview.html = getWebviewContent(context, panel);
 
-        while (addMoreFields) {
-            // Get field name
-            const fieldName = await vscode.window.showInputBox({
-                prompt: 'Enter field name (e.g., first_name)',
-                placeHolder: 'Field name'
-            });
+    // Handle messages from the webview
+    panel.webview.onDidReceiveMessage(
+        async message => {
+            switch (message.command) {
+                case 'createModel':
+                    try {
+                        const { modelName, fields, appName } = message;
+                        
+                        // Validate inputs
+                        if (!modelName || !appName || fields.length === 0) {
+                            vscode.window.showErrorMessage('Please fill in all required fields');
+                            return;
+                        }
 
-            if (!fieldName) {
-                break;
+                        // Show progress
+                        vscode.window.withProgress({
+                            location: vscode.ProgressLocation.Notification,
+                            title: "Creating Django Model",
+                            cancellable: false
+                        }, async (progress) => {
+                            progress.report({ increment: 0 });
+                            
+                            try {
+                                await createModelFiles(modelName, fields, appName);
+                                progress.report({ increment: 100 });
+                                vscode.window.showInformationMessage(`Model ${modelName} created successfully!`);
+                                panel.dispose();
+                            } catch (error) {
+                                vscode.window.showErrorMessage(`Error creating model: ${error}`);
+                            }
+                        });
+                    } catch (error) {
+                        vscode.window.showErrorMessage(`Error processing model creation: ${error}`);
+                    }
+                    return;
             }
+        },
+        undefined,
+        context.subscriptions
+    );
+}
 
-            // Select field type
-            const fieldType = await vscode.window.showQuickPick(
-                FIELD_TYPES.map(type => ({
-                    label: type.label,
-                    description: type.description,
-                    value: type.value
-                })),
-                {
-                    placeHolder: 'Select field type'
-                }
-            );
+function getWebviewContent(context: vscode.ExtensionContext, panel: vscode.WebviewPanel): string {
+    const styleUri = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'media', 'model-creator.css'));
+    const scriptUri = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'media', 'model-creator.js'));
 
-            if (!fieldType) {
-                break;
-            }
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Django Model Creator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${styleUri}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h3>Create Django Model</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="modelForm">
+                                <div class="mb-3">
+                                    <label for="appName" class="form-label">App Name</label>
+                                    <input type="text" class="form-control" id="appName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modelName" class="form-label">Model Name</label>
+                                    <input type="text" class="form-control" id="modelName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Fields</label>
+                                    <div id="fieldsContainer">
+                                        <div class="field-row mb-2">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <input type="text" class="form-control field-name" placeholder="Field Name" required>
+                                                </div>
+                                                <div class="col-4">
+                                                    <select class="form-select field-type">
+                                                        <option value="CharField">CharField</option>
+                                                        <option value="TextField">TextField</option>
+                                                        <option value="IntegerField">IntegerField</option>
+                                                        <option value="FloatField">FloatField</option>
+                                                        <option value="BooleanField">BooleanField</option>
+                                                        <option value="DateField">DateField</option>
+                                                        <option value="DateTimeField">DateTimeField</option>
+                                                        <option value="EmailField">EmailField</option>
+                                                        <option value="URLField">URLField</option>
+                                                        <option value="ForeignKey">ForeignKey</option>
+                                                        <option value="ManyToManyField">ManyToManyField</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <input type="text" class="form-control field-options" placeholder="Options (e.g., max_length=100)">
+                                                </div>
+                                                <div class="col-1">
+                                                    <button type="button" class="btn btn-danger remove-field">×</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary mt-2" id="addField">Add Field</button>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create Model</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="${scriptUri}"></script>
+    </body>
+    </html>`;
+}
 
-            // Get field options
-            const options = await vscode.window.showInputBox({
-                prompt: 'Enter field options (e.g., max_length=100, null=True)',
-                placeHolder: 'Field options (optional)'
-            });
-
-            fields.push({
-                name: fieldName,
-                type: fieldType.value,
-                options: options || ''
-            });
-
-            // Ask if user wants to add more fields
-            const addMore = await vscode.window.showQuickPick(['Yes', 'No'], {
-                placeHolder: 'Add another field?'
-            });
-
-            addMoreFields = addMore === 'Yes';
-        }
-
-        // Generate model code
-        const modelCode = generateModelCode(modelName, fields);
-        
-        // Get app name
-        const appName = await vscode.window.showInputBox({
-            prompt: 'Enter app name where model should be created',
-            placeHolder: 'App name'
-        });
-
-        if (!appName) {
-            return;
-        }
-
-        // Write model to file
-        const workspaceFolders = vscode.workspace.workspaceFolders;
-        if (!workspaceFolders) {
-            throw new Error('No workspace folder found');
-        }
-
-        const appPath = path.join(workspaceFolders[0].uri.fsPath, appName);
-        const modelsPath = path.join(appPath, 'models.py');
-
-        if (!fs.existsSync(modelsPath)) {
-            throw new Error(`Models file not found at ${modelsPath}`);
-        }
-
-        // Append model to models.py
-        fs.appendFileSync(modelsPath, '\n\n' + modelCode);
-
-        // Generate views
-        const viewsCode = generateViewsCode(modelName, appName);
-        const viewsPath = path.join(appPath, 'views.py');
-        fs.appendFileSync(viewsPath, '\n\n' + viewsCode);
-
-        // Generate URLs
-        const urlsCode = generateUrlsCode(modelName, appName);
-        const urlsPath = path.join(appPath, 'urls.py');
-        fs.appendFileSync(urlsPath, '\n\n' + urlsCode);
-
-        // Create templates
-        createTemplates(modelName, appName, fields);
-
-        // Run migrations
-        await runTerminalCommand('python manage.py makemigrations');
-        await runTerminalCommand('python manage.py migrate');
-
-        vscode.window.showInformationMessage(`Model ${modelName} created successfully!`);
-
-    } catch (error) {
-        vscode.window.showErrorMessage(`Error creating model: ${error}`);
+async function createModelFiles(modelName: string, fields: Field[], appName: string) {
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (!workspaceFolders) {
+        throw new Error('No workspace folder found');
     }
+
+    const appPath = path.join(workspaceFolders[0].uri.fsPath, appName);
+    const modelsPath = path.join(appPath, 'models.py');
+
+    if (!fs.existsSync(appPath)) {
+        throw new Error(`App directory not found at ${appPath}`);
+    }
+
+    if (!fs.existsSync(modelsPath)) {
+        throw new Error(`Models file not found at ${modelsPath}`);
+    }
+
+    // Generate model code
+    let modelCode = `class ${modelName}(models.Model):\n`;
+    fields.forEach(field => {
+        modelCode += `    ${field.name} = models.${field.type}(${field.options})\n`;
+    });
+    modelCode += '\n    def __str__(self):\n';
+    modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
+
+    // Append model to models.py
+    fs.appendFileSync(modelsPath, '\n\n' + modelCode);
+
+    // Create migrations
+    const terminal = vscode.window.createTerminal('Django Migrations');
+    terminal.show();
+    terminal.sendText(`cd ${workspaceFolders[0].uri.fsPath}`);
+    terminal.sendText('python manage.py makemigrations');
+    terminal.sendText('python manage.py migrate');
 }
 
 function generateModelCode(modelName: string, fields: Field[]): string {
