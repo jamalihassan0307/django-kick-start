@@ -221,10 +221,10 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
                 options = `max_length=100${options ? ', ' + options : ''}`;
             }
         }
-        modelCode += `    ${field.name} = models.${field.type}(${options})\n`;
+        modelCode += `    ${field.name} = models.${field.type}(max_length=${options})\n`;
     });
-    modelCode += '\n    def __str__(self):\n';
-    modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
+    // modelCode += '\n    def __str__(self):\n';
+    // modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
 
     // Write clean model code to models.py
     fs.writeFileSync(modelsPath, modelCode);
