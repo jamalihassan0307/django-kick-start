@@ -189,6 +189,8 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
 
     const appPath = path.join(workspaceFolders[0].uri.fsPath, appName);
     const modelsPath = path.join(appPath, 'models.py');
+    const viewsPath = path.join(appPath, 'views.py');
+    const urlsPath = path.join(appPath, 'urls.py');
 
     if (!fs.existsSync(appPath)) {
         throw new Error(`App directory not found at ${appPath}`);
@@ -201,6 +203,10 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
     // Generate model code
     let modelCode = `class ${modelName}(models.Model):\n`;
     fields.forEach(field => {
+        // Add max_length for CharField if not specified
+        if (field.type === 'CharField' && !field.options.includes('max_length')) {
+            field.options = `max_length=100, ${field.options}`;
+        }
         modelCode += `    ${field.name} = models.${field.type}(${field.options})\n`;
     });
     modelCode += '\n    def __str__(self):\n';
@@ -208,6 +214,53 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
 
     // Append model to models.py
     fs.appendFileSync(modelsPath, '\n\n' + modelCode);
+
+    // Generate views code
+    const modelNameLower = modelName.toLowerCase();
+    const viewsCode = `
+# Create ${modelName}
+def create_${modelNameLower}(request):
+    if request.method == 'POST':
+        ${modelNameLower} = ${modelName}.objects.create(**request.POST.dict())
+        return redirect('fetch_${modelNameLower}')
+    return render(request, '${appName}/create_${modelNameLower}.html')
+
+# Fetch All ${modelName}s
+def fetch_${modelNameLower}(request):
+    ${modelNameLower}s = ${modelName}.objects.all()
+    context = {'${modelNameLower}s': ${modelNameLower}s}
+    return render(request, '${appName}/${modelNameLower}.html', context)
+
+# Delete ${modelName}
+def delete_${modelNameLower}(request, id):
+    ${modelNameLower} = get_object_or_404(${modelName}, id=id)
+    ${modelNameLower}.delete()
+    return redirect('fetch_${modelNameLower}')
+
+# Edit ${modelName}
+def edit_${modelNameLower}(request, id):
+    ${modelNameLower} = get_object_or_404(${modelName}, id=id)
+    if request.method == 'POST':
+        for key, value in request.POST.items():
+            setattr(${modelNameLower}, key, value)
+        ${modelNameLower}.save()
+        return redirect('fetch_${modelNameLower}')
+    return render(request, '${appName}/edit_${modelNameLower}.html', {'${modelNameLower}': ${modelNameLower}})
+`;
+
+    // Append views to views.py
+    fs.appendFileSync(viewsPath, viewsCode);
+
+    // Generate URLs code
+    const urlsCode = `
+    path('${modelNameLower}/create/', views.create_${modelNameLower}, name='create_${modelNameLower}'),
+    path('${modelNameLower}/', views.fetch_${modelNameLower}, name='fetch_${modelNameLower}'),
+    path('${modelNameLower}/delete/<int:id>/', views.delete_${modelNameLower}, name='delete_${modelNameLower}'),
+    path('${modelNameLower}/edit/<int:id>/', views.edit_${modelNameLower}, name='edit_${modelNameLower}'),
+`;
+
+    // Append URLs to urls.py
+    fs.appendFileSync(urlsPath, urlsCode);
 
     // Create migrations
     const terminal = vscode.window.createTerminal('Django Migrations');
