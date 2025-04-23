@@ -4,6 +4,22 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.2] - 2024-03-21
+
+### Added
+- New command: `Django: Create Migration`
+  - Interactive migration creation wizard
+  - Automatic model detection
+  - Migration file generation
+  - Visual feedback during migration process
+  - Support for multiple model migrations
+
+### Enhanced
+- Improved migration workflow
+- Better error handling for migration operations
+- Enhanced visual feedback during operations
+- Streamlined migration file generation
+
 ## [1.1.1] - 2024-03-21
 
 ### Changed
