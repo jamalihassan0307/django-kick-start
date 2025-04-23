@@ -1,0 +1,75 @@
+body {
+    padding: 20px;
+    background-color: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+
+.card {
+    background-color: var(--vscode-editor-background);
+    border: 1px solid var(--vscode-panel-border);
+}
+
+.card-header {
+    background-color: var(--vscode-editor-background);
+    border-bottom: 1px solid var(--vscode-panel-border);
+}
+
+.form-control, .form-select {
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border: 1px solid var(--vscode-input-border);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--vscode-input-background);
+    color: var(--vscode-input-foreground);
+    border-color: var(--vscode-focusBorder);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--vscode-button-background);
+    color: var(--vscode-button-foreground);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--vscode-button-hoverBackground);
+}
+
+.btn-secondary {
+    background-color: var(--vscode-button-secondaryBackground);
+    color: var(--vscode-button-secondaryForeground);
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--vscode-button-secondaryHoverBackground);
+}
+
+.btn-danger {
+    background-color: var(--vscode-errorForeground);
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: var(--vscode-errorForeground);
+    opacity: 0.8;
+}
+
+.field-row {
+    background-color: var(--vscode-editor-background);
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--vscode-panel-border);
+}
+
+.remove-field {
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+} 
