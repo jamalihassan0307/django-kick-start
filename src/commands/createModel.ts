@@ -275,23 +275,56 @@ def edit_${modelNameLower}(request, id):
     return render(request, '${appName}/edit_${modelNameLower}.html', {'${modelNameLower}': ${modelNameLower}})
 `;
 
-    // Append views to views.py
-    fs.appendFileSync(viewsPath, viewsCode);
+    // Append views to views.py instead of replacing
+    if (fs.existsSync(viewsPath)) {
+        // Read existing content
+        const existingContent = fs.readFileSync(viewsPath, 'utf8');
+        // Check if the views already exist
+        if (!existingContent.includes(`def create_${modelNameLower}(request):`)) {
+            fs.appendFileSync(viewsPath, viewsCode);
+        }
+    } else {
+        // If views.py doesn't exist, create it with initial imports
+        const initialContent = `from django.shortcuts import render, redirect, get_object_or_404
+from .models import ${modelName}
+
+${viewsCode}`;
+        fs.writeFileSync(viewsPath, initialContent);
+    }
 
     // Generate URLs code with proper indentation
-    const urlsCode = `from django.urls import path
-from . import views
-
-urlpatterns = [
+    const urlsCode = `
     path('${modelNameLower}/create/', views.create_${modelNameLower}, name='create_${modelNameLower}'),
     path('${modelNameLower}/', views.fetch_${modelNameLower}, name='fetch_${modelNameLower}'),
     path('${modelNameLower}/delete/<int:id>/', views.delete_${modelNameLower}, name='delete_${modelNameLower}'),
-    path('${modelNameLower}/edit/<int:id>/', views.edit_${modelNameLower}, name='edit_${modelNameLower}'),
-]
-`;
+    path('${modelNameLower}/edit/<int:id>/', views.edit_${modelNameLower}, name='edit_${modelNameLower}'),`;
 
-    // Write URLs to urls.py (overwrite if exists)
-    fs.writeFileSync(urlsPath, urlsCode);
+    // Handle URLs file
+    if (fs.existsSync(urlsPath)) {
+        // Read existing content
+        const existingContent = fs.readFileSync(urlsPath, 'utf8');
+        // Check if the URLs already exist
+        if (!existingContent.includes(`path('${modelNameLower}/create/'`)) {
+            // Find the urlpatterns list and append new URLs
+            const updatedContent = existingContent.replace(
+                /urlpatterns\s*=\s*\[([\s\S]*?)\]/,
+                (match, content) => {
+                    // Remove trailing comma if exists
+                    const cleanContent = content.replace(/,\s*$/, '');
+                    return `urlpatterns = [${cleanContent}${urlsCode}\n]`;
+                }
+            );
+            fs.writeFileSync(urlsPath, updatedContent);
+        }
+    } else {
+        // If urls.py doesn't exist, create it with initial content
+        const initialContent = `from django.urls import path
+from . import views
+
+urlpatterns = [${urlsCode}
+]`;
+        fs.writeFileSync(urlsPath, initialContent);
+    }
 
     // Create migrations
     const terminal = vscode.window.createTerminal('Django Migrations');
