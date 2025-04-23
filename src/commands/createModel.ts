@@ -204,27 +204,40 @@ async function createModelFiles(modelName: string, fields: Field[], appName: str
     let modelCode = `from django.db import models\n\n`;
     modelCode += `class ${modelName}(models.Model):\n`;
     fields.forEach(field => {
-        // Clean up field options
         let options = field.options;
-        if (field.type === 'CharField') {
-            // Remove any existing max_length parameter
-            options = options.replace(/max_length=\d+,\s*/g, '');
-            // Remove any positional arguments
-            options = options.replace(/,\s*\d+/g, '');
-            // Remove any duplicate max_length
-            options = options.replace(/max_length=\d+/g, '');
-            // Clean up any extra commas
-            options = options.replace(/,\s*,/g, ',');
-            options = options.replace(/,\s*$/, '');
-            // Add max_length=100 if not present
-            if (!options.includes('max_length')) {
-                options = `max_length=100${options ? ', ' + options : ''}`;
-            }
+        
+        // Handle different field types
+        switch (field.type) {
+            case 'CharField':
+                // Clean up max_length for CharField
+                options = options.replace(/max_length=\d+,\s*/g, '');
+                options = options.replace(/,\s*\d+/g, '');
+                options = options.replace(/max_length=\d+/g, '');
+                options = options.replace(/,\s*,/g, ',');
+                options = options.replace(/,\s*$/, '');
+                // Extract max_length value if present
+                const maxLengthMatch = options.match(/max_length=(\d+)/);
+                const maxLength = maxLengthMatch ? maxLengthMatch[1] : '100';
+                modelCode += `    ${field.name} = models.${field.type}(max_length=${maxLength})\n`;
+                break;
+                
+            case 'EmailField':
+                // EmailField doesn't need max_length
+                modelCode += `    ${field.name} = models.${field.type}()\n`;
+                break;
+                
+            case 'IntegerField':
+                // IntegerField doesn't need max_length
+                modelCode += `    ${field.name} = models.${field.type}()\n`;
+                break;
+                
+            default:
+                // Handle other field types
+                modelCode += `    ${field.name} = models.${field.type}(${options})\n`;
         }
-        modelCode += `    ${field.name} = models.${field.type}(max_length=${options})\n`;
     });
-    // modelCode += '\n    def __str__(self):\n';
-    // modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
+    modelCode += '\n    def __str__(self):\n';
+    modelCode += `        return self.${fields[0]?.name || 'id'}\n`;
 
     // Write clean model code to models.py
     fs.writeFileSync(modelsPath, modelCode);
