@@ -54,10 +54,13 @@ export async function createModel(context: vscode.ExtensionContext) {
     // Handle messages from the webview
     panel.webview.onDidReceiveMessage(
         async message => {
+            console.log('Received message:', message);
+            
             switch (message.command) {
                 case 'createModel':
                     try {
                         const { modelName, fields, appName } = message;
+                        console.log('Creating model:', { modelName, fields, appName });
                         
                         // Validate inputs
                         if (!modelName || !appName || fields.length === 0) {
@@ -79,10 +82,12 @@ export async function createModel(context: vscode.ExtensionContext) {
                                 vscode.window.showInformationMessage(`Model ${modelName} created successfully!`);
                                 panel.dispose();
                             } catch (error) {
+                                console.error('Error creating model:', error);
                                 vscode.window.showErrorMessage(`Error creating model: ${error}`);
                             }
                         });
                     } catch (error) {
+                        console.error('Error processing model creation:', error);
                         vscode.window.showErrorMessage(`Error processing model creation: ${error}`);
                     }
                     return;
@@ -91,6 +96,9 @@ export async function createModel(context: vscode.ExtensionContext) {
         undefined,
         context.subscriptions
     );
+
+    // Send initial message to webview
+    panel.webview.postMessage({ command: 'ready' });
 }
 
 function getWebviewContent(context: vscode.ExtensionContext, panel: vscode.WebviewPanel): string {
