@@ -35,51 +35,58 @@
   <table style="width:100%">
     <tr>
       <td align="center">
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/migration%20create.gif?raw=true" alt="Create Migration" style="width:100%"/>
+        <br>
+        <strong>1. Create Migration</strong>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/initProject.gif?raw=true" alt="Initialize Project" style="width:100%"/>
         <br>
-        <strong>1. Initialize Project</strong>
+        <strong>2. Initialize Project</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/generateApp.gif?raw=true" alt="Generate App" style="width:100%"/>
         <br>
-        <strong>2. Generate App</strong>
+        <strong>3. Generate App</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/staticHelper.gif?raw=true" alt="Static Helper" style="width:100%"/>
         <br>
-        <strong>3. Static Helper</strong>
+        <strong>4. Static Helper</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/templateScaff.gif?raw=true" alt="Template Scaffolding" style="width:100%"/>
         <br>
-        <strong>4. Template Scaffolding</strong>
+        <strong>5. Template Scaffolding</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createhtml.gif?raw=true" alt="Create HTML" style="width:100%"/>
         <br>
-        <strong>5. Create HTML</strong>
+        <strong>6. Create HTML</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/createstatic.gif?raw=true" alt="Create Static" style="width:100%"/>
         <br>
-        <strong>6. Create Static</strong>
+        <strong>7. Create Static</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/runServer with F5.gif?raw=true" alt="Run Server" style="width:100%"/>
         <br>
-        <strong>7. Run Server with F5</strong>
+        <strong>8. Run Server with F5</strong>
       </td>
     </tr>
   </table>
