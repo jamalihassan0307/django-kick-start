@@ -57,12 +57,19 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
-## �� Demo
+## 🎥 Demo
 
 <div align="center">
   <h3>✨ Feature Demonstrations ✨</h3>
   
   <table style="width:100%">
+    <tr>
+      <td align="center">
+        <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/migration%20create.gif?raw=true" alt="Create Migration" style="width:100%"/>
+        <br>
+        <strong>Create Migration</strong>
+      </td>
+    </tr>
     <tr>
       <td align="center">
         <img src="https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/initProject.gif?raw=true" alt="Initialize Project" style="width:100%"/>
