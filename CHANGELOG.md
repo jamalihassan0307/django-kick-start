@@ -4,6 +4,23 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.4] - 2025-08-10
+
+### Changed
+- Updated package version to 1.1.4
+- Enhanced extension activation logic
+- Improved command registration process
+
+### Enhanced
+- Silent Python installation verification
+- Better extension initialization workflow
+- More efficient command handling
+
+### Fixed
+- Command registration performance issues
+- Python environment detection reliability
+- Extension startup optimization
+
 ## [1.1.3] - 2024-03-21
 
 ### Added
