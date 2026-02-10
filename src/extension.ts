@@ -9,6 +9,9 @@ import { createStatic } from './commands/createStatic';
 import { runServer } from './commands/runServer';
 import { createModel } from './commands/createModel';
 import { createView } from './commands/createView';
+import { runMigration } from './commands/runMigration';
+import { generateDebugConfig } from './commands/generateDebugConfig';
+import { generateTests } from './commands/generateTests';
 
 let outputChannel: vscode.OutputChannel;
 
@@ -60,6 +63,21 @@ export function activate(context: vscode.ExtensionContext) {
             id: 'django-kick-start.createView',
             handler: createView,
             title: 'Django: Create View and URL'
+        },
+        {
+            id: 'django-kick-start.runMigration',
+            handler: runMigration,
+            title: 'Django: Run Migration'
+        },
+        {
+            id: 'django-kick-start.generateDebugConfig',
+            handler: generateDebugConfig,
+            title: 'Django: Generate Debug Config'
+        },
+        {
+            id: 'django-kick-start.generateTests',
+            handler: generateTests,
+            title: 'Django: Generate Tests'
         }
     ];
 

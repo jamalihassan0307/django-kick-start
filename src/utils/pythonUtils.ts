@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as cp from 'child_process';
 import * as path from 'path';
+import * as fs from 'fs';
 
 export async function checkPythonInstallation(): Promise<boolean> {
     try {
@@ -71,4 +72,56 @@ export async function runTerminalCommand(command: string): Promise<void> {
             }
         });
     });
+}
+
+/**
+ * Get list of Django apps in the current workspace (directories with models.py)
+ */
+export async function getDjangoApps(workspacePath: string): Promise<string[]> {
+    const apps: string[] = [];
+    const entries = fs.readdirSync(workspacePath, { withFileTypes: true });
+    for (const entry of entries) {
+        if (entry.isDirectory() && !entry.name.startsWith('.') && entry.name !== 'venv' && entry.name !== '__pycache__') {
+            const modelsPath = path.join(workspacePath, entry.name, 'models.py');
+            if (fs.existsSync(modelsPath)) {
+                apps.push(entry.name);
+            }
+        }
+    }
+    return apps.sort();
+}
+
+/**
+ * Get Django version from project (e.g., "4.2")
+ */
+export async function getDjangoVersion(cwd?: string): Promise<string | null> {
+    try {
+        const output = await executeCommand('python -c "import django; print(django.VERSION)"', cwd);
+        const match = output.match(/\((\d+),\s*(\d+)/);
+        if (match) {
+            return `${match[1]}.${match[2]}`;
+        }
+        return null;
+    } catch {
+        return null;
+    }
+}
+
+/**
+ * Check if Django version is supported (Django 3.2+)
+ */
+export async function checkDjangoVersionCompatibility(cwd?: string): Promise<{ supported: boolean; version: string | null; message?: string }> {
+    const version = await getDjangoVersion(cwd);
+    if (!version) {
+        return { supported: true, version: null };
+    }
+    const [major, minor] = version.split('.').map(Number);
+    if (major < 3 || (major === 3 && minor < 2)) {
+        return {
+            supported: false,
+            version,
+            message: `Django ${version} is installed. Django 3.2+ is recommended for full compatibility.`
+        };
+    }
+    return { supported: true, version };
 } 

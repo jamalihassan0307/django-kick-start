@@ -4,6 +4,23 @@ All notable changes to the "Django Kick Start" extension will be documented in t
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.1.5] - 2025-02-10
+
+### Added
+- **App selector** in Create HTML Template and Create View and URL (choose target app instead of hardcoded `myapp`)
+- **Django: Run Migration** – dedicated command for makemigrations and migrate
+- **Django: Generate Debug Config** – adds Django Run/Debug configurations to launch.json
+- **Django: Generate Tests** – generates test stubs for models and views
+- **Admin registration** – models created via Model Creator are auto-registered in admin.py
+- **Django version compatibility checks** – warns if Django &lt; 3.2 (in Initialize Project and Run Server)
+
+### Fixed
+- **createView** URL pattern validation – Django `path()` does not use leading slash; validation updated
+
+### Enhanced
+- Package description with scaffold, boilerplate, beginner-friendly keywords
+- README with all 12 commands, Model Creator and Developer Tools sections, install links
+
 ## [1.1.4] - 2025-08-10
 
 ### Changed

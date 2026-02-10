@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import { checkPythonInstallation, checkDjangoInstallation, installDjango, executeCommand, validateProjectName } from '../utils/pythonUtils';
+import { checkPythonInstallation, checkDjangoInstallation, installDjango, executeCommand, validateProjectName, checkDjangoVersionCompatibility } from '../utils/pythonUtils';
 
 /**
  * One-click project setup command
@@ -38,6 +38,11 @@ export async function initProject(context: vscode.ExtensionContext) {
             } else {
                 return;
             }
+        }
+
+        const versionCheck = await checkDjangoVersionCompatibility();
+        if (!versionCheck.supported && versionCheck.message) {
+            await vscode.window.showWarningMessage(versionCheck.message);
         }
 
         // Get project name from user

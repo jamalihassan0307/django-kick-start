@@ -1,8 +1,8 @@
 {
   "name": "django-kick-start",
   "displayName": "Django Kick Start",
-  "description": "A VS Code extension to kickstart Django development",
-  "version": "1.1.4",
+  "description": "One-click Django scaffold & boilerplate. Create projects, apps, models, templates in VS Code. Beginner-friendly Python web starter.",
+  "version": "1.1.5",
   "publisher": "jamalihassan0307",
   "engines": {
     "vscode": "^1.85.0",
@@ -115,6 +115,21 @@
       {
         "command": "django-kick-start.createView",
         "title": "Django: Create View and URL",
+        "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.runMigration",
+        "title": "Django: Run Migration",
+        "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.generateDebugConfig",
+        "title": "Django: Generate Debug Config",
+        "category": "Django Kick Start"
+      },
+      {
+        "command": "django-kick-start.generateTests",
+        "title": "Django: Generate Tests",
         "category": "Django Kick Start"
       }
     ]

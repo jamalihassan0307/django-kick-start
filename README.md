@@ -4,7 +4,13 @@
   </kbd>
   
   <h1>🚀 Django Kick Start 🚀</h1>
-  <p><i>A powerful VS Code extension for seamless Django project initialization and management</i></p>
+  <p><i>One-click Django scaffold & boilerplate — Create projects, apps, models, and templates in VS Code. Beginner-friendly Python web starter.</i></p>
+  
+  <p>
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
+      <img src="https://img.shields.io/badge/Install_from_Marketplace-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Install"/>
+    </a>
+  </p>
   
   <p align="center">
     <a href="https://github.com/jamalihassan0307">
@@ -25,7 +31,7 @@
   </p>
 
   <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
       <img src="https://img.shields.io/badge/VS_Code-1.85.0+-373277?style=for-the-badge&logo=visualstudio&logoColor=white" alt="VS Code"/>
     </a>
     <a href="https://www.python.org">
@@ -38,12 +44,12 @@
 
   <p align="center">
     <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
-      <img src="https://img.shields.io/badge/version-1.1.4-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
+      <img src="https://img.shields.io/badge/version-1.1.5-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Version"/>
     </a>
     <a href="https://www.djangoproject.com">
       <img src="https://img.shields.io/badge/Django-Latest-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django"/>
     </a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan.django-kick-start">
+    <a href="https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start">
       <img src="https://img.shields.io/badge/VS_Marketplace-Install-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Install"/>
     </a>
   </p>
@@ -51,9 +57,9 @@
 
 # Django Kick Start
 
-A VS Code extension providing a beginner-friendly Django project setup experience with one-click initialization and smart automation tools.
+A VS Code extension for **one-click Django scaffold and boilerplate** — create projects, apps, models, templates, and more without leaving the editor. Beginner-friendly with smart automation for Python web development.
 
-[![Version](https://img.shields.io/badge/version-1.1.4-blue.svg)](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)
+[![Version](https://img.shields.io/badge/version-1.1.5-blue.svg)](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 ![VS Code Compatibility](https://img.shields.io/badge/vscode-%5E1.85.0-brightgreen.svg)
 
@@ -152,16 +158,32 @@ A VS Code extension providing a beginner-friendly Django project setup experienc
 - Mobile-friendly design
 - Custom block structure
 
+### 5. Model Creator (Visual UI)
+- Create models with field types
+- Auto-generate views, URLs, admin registration
+- Run migrations from the extension
+
+### 6. Developer Tools
+- Run Migration (makemigrations / migrate)
+- Generate Debug Config (launch.json for F5 debugging)
+- Generate Tests (test stubs for models and views)
+
 ### 🚀 Quick Start
 
-1. Install the extension from VS Code Marketplace
+1. **[Install from VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=jamalihassan0307.django-kick-start)** or run `ext install jamalihassan0307.django-kick-start`
 2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
 3. Type "Django" to see available commands:
-   - "Django: Initialize New Project" - Create new project
-   - "Django: Generate New App" - Add new app
-   - "Django: Setup Static Files" - Configure static files
-   - "Django: Scaffold Templates" - Set up templates
-   - "Django: Run Development Server" - Start development server
+   - "Django: Initialize Project" - One-click project creation
+   - "Django: Generate App" - Add new app
+   - "Django: Create Model" - Visual model creator
+   - "Django: Setup Static Files" - Configure static/media
+   - "Django: Generate Templates" - Bootstrap templates
+   - "Django: Create HTML Template" - Template + view + URL
+   - "Django: Create View and URL" - View without template
+   - "Django: Run Migration" - Makemigrations & migrate
+   - "Django: Generate Debug Config" - Add launch.json
+   - "Django: Generate Tests" - Test stubs
+   - "Django: Run Development Server" - Start server
 
 ### Debugging Your Project
 
@@ -203,13 +225,18 @@ The server will run on `http://127.0.0.1:8000/` by default.
 
 | Command | Description |
 |---------|-------------|
-| `Django: Initialize New Project` | Start the project creation wizard |
-| `Django: Generate New App` | Create a new Django app in your project |
-| `Django: Setup Static Files` | Configure static files and media handling |
-| `Django: Scaffold Templates` | Set up Bootstrap-powered templates |
-| `Django: Create HTML Template` | Create a new HTML template with automatic view integration |
-| `Django: Create Static File` | Creates CSS or JavaScript files with proper structure |
-| `Django: Run Development Server` | Start the Django development server |
+| `Django: Initialize Project` | One-click project creation wizard |
+| `Django: Generate App` | Create a new Django app |
+| `Django: Create Model` | Visual model creator with admin registration |
+| `Django: Setup Static Files` | Configure static and media files |
+| `Django: Generate Templates` | Set up Bootstrap templates |
+| `Django: Create HTML Template` | Create template + view + URL (with app selector) |
+| `Django: Create Static File` | Create CSS or JavaScript files |
+| `Django: Create View and URL` | Create view without template |
+| `Django: Run Migration` | Makemigrations and/or migrate |
+| `Django: Generate Debug Config` | Add Django debug configs to launch.json |
+| `Django: Generate Tests` | Generate test stubs for models and views |
+| `Django: Run Development Server` | Start development server |
 
 ### 🔄 Project Structure
 
@@ -253,15 +280,18 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 See the [issue tracker](https://github.com/jamalihassan0307/django-kick-start/issues) for current issues.
 
-## What's New in 1.1.4
+## What's New in 1.1.5
 
-### View and URL Creation
-- Added new `Django: Create View and URL` command
-- Create views with HTTP response
-- Automatic URL pattern configuration
-- View name validation
-- URL pattern validation
-- No HTML template creation
+### New Commands & Features
+- **App selector** in Create HTML and Create View (choose target app)
+- **Django: Run Migration** – makemigrations and migrate
+- **Django: Generate Debug Config** – adds launch.json for F5 debugging
+- **Django: Generate Tests** – test stubs for models and views
+- **Admin registration** – auto-register models from Model Creator
+- **Django version check** – warns if Django &lt; 3.2
+
+### Improvements
+- Fixed createView URL pattern validation (Django path convention)
 
 ![View Creation](https://github.com/jamalihassan0307/Projects-Assets/blob/main/kick-start/gif/view%20create.gif?raw=true)
 

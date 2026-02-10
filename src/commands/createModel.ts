@@ -339,6 +339,34 @@ urlpatterns = [${urlsCode}
         fs.writeFileSync(urlsPath, initialContent);
     }
 
+    // Register model in admin.py
+    const adminPath = path.join(appPath, 'admin.py');
+    if (fs.existsSync(adminPath)) {
+        let adminContent = fs.readFileSync(adminPath, 'utf8');
+        if (!adminContent.includes(`admin.site.register(${modelName})`)) {
+            if (adminContent.includes('from .models import')) {
+                const importMatch = adminContent.match(/from \.models import ([^\n]+)/);
+                if (importMatch && !importMatch[1].includes(modelName)) {
+                    adminContent = adminContent.replace(/from \.models import ([^\n]+)/, `from .models import $1, ${modelName}`);
+                }
+            } else {
+                adminContent = adminContent.replace(
+                    /(from django\.contrib import admin\n)/,
+                    `$1from .models import ${modelName}\n\n`
+                );
+            }
+            adminContent = adminContent.trimEnd() + `\n\nadmin.site.register(${modelName})\n`;
+            fs.writeFileSync(adminPath, adminContent);
+        }
+    } else {
+        const adminContent = `from django.contrib import admin
+from .models import ${modelName}
+
+admin.site.register(${modelName})
+`;
+        fs.writeFileSync(adminPath, adminContent);
+    }
+
     // Create migrations
     const terminal = vscode.window.createTerminal('Django Migrations');
     terminal.show();

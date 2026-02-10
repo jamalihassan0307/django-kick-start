@@ -1,11 +1,17 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
+import { checkDjangoVersionCompatibility } from '../utils/pythonUtils';
 
 export async function runServer() {
     try {
         const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
         if (!workspaceFolder) {
             throw new Error('No workspace folder found');
+        }
+
+        const versionCheck = await checkDjangoVersionCompatibility(workspaceFolder.uri.fsPath);
+        if (!versionCheck.supported && versionCheck.message) {
+            vscode.window.showWarningMessage(versionCheck.message);
         }
 
         // Ask user if they want to run in debug mode
